@@ -46,7 +46,7 @@ export const Home = () => {
             />
           </div>
           <button
-            className="button"
+            className="button-effect button"
             onClick={() => {
               setRoom(roomInputRef.current.value.toUpperCase());
               cookies.set(
@@ -65,12 +65,12 @@ export const Home = () => {
             onClick={() => {
               setRoom(null);
             }}
-            className="button"
+            className="button-effect button"
           >
             <p className="text">Sair do Chat</p>
           </button>
         ) : null}
-        <button onClick={signUserOut} className="sign-out-button button">
+        <button onClick={signUserOut} className="sign-out-button button button-effect">
           <p className="text">Sair da Conta</p>
         </button>
         <HexColorPicker color={color} onChange={setColor} />
