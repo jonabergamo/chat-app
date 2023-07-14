@@ -1,0 +1,84 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  width: 450px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.062);
+  border-radius: 16px 16px 0px 0px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  gap: 5px;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+.messages::-webkit-scrollbar {
+  width: 0px;
+}
+
+.message {
+  background-color: #116cf5;
+
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  border-radius: 8px;
+  gap: 15px;
+}
+
+.message .information {
+  display: flex;
+  flex-direction: column;
+  max-width: 300px;
+}
+
+.message .information span:nth-child(2) {
+  word-wrap: break-word;
+}
+
+.message span:nth-child(1) {
+  font-weight: 500;
+}
+
+.other {
+  align-self: flex-start;
+}
+
+.my {
+  align-self: flex-end;
+}
+
+.picture {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-bottom: 5px;
+}
+
+.new-message-input {
+  min-height: 40px;
+  width: 400px;
+  border-radius: 5px 0px 0px 15px;
+  border-style: none;
+  padding: 5px;
+}
+
+.send-button {
+  width: 75px;
+  height: 51px;
+  border-radius: 0px 0px 16px 0px;
+  border-style: none;
+  background-color: #116cf5;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
