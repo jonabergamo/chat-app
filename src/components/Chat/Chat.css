@@ -95,12 +95,13 @@
 
 @media (max-width: 460px) {
   .messages {
-    width: 400px;
+    width: 100%;
   }
   .new-message-input {
     min-height: 40px;
-    min-width: 400px;
-    border-radius: 0px 0px 15px 15px;
+    min-width: 80vw;
+    margin-top: 15px;
+    border-radius: 15px;
     border-style: none;
     padding: 5px;
   }
@@ -110,7 +111,7 @@
   }
   .send-button {
     width: 100px;
-    margin-top: 5px;
+    margin-top: 15px;
     border-radius: 16px;
   }
 }
