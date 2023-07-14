@@ -11,6 +11,7 @@ import {
 import { app, auth } from "../../services/firebaseConfig";
 import { getFirestore } from "firebase/firestore";
 import "./Chat.css";
+import audio from "../../assets/notification.mp3";
 
 export const Chat = (props) => {
   const db = getFirestore(app);
@@ -20,6 +21,8 @@ export const Chat = (props) => {
   const chat = document.querySelector("#messages");
 
   const messagesRef = collection(db, "messages");
+
+  var notification = new Audio(audio);
 
   useEffect(() => {
     const queryMessages = query(
@@ -37,6 +40,15 @@ export const Chat = (props) => {
 
     return () => unsuscribe();
   }, []);
+
+  useEffect(() => {
+    const lastMessage = messages[messages.length - 1];
+    if (lastMessage) {
+      if (lastMessage.userID !== auth.currentUser.uid) {
+        notification.play();
+      }
+    }
+  }, [messages]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
