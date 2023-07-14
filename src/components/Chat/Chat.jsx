@@ -49,7 +49,7 @@ export const Chat = (props) => {
     const lastMessage = messages[messages.length - 1];
 
     if (lastMessage?.userID !== auth?.currentUser?.uid) {
-      //notification.play();
+      notification.play();
     }
   }, [messages]);
 
