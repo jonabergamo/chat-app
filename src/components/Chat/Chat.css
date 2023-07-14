@@ -4,6 +4,16 @@
   align-items: center;
 }
 
+.chat-app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.new-message-form {
+  display: flex;
+}
+
 .messages {
   display: flex;
   flex-direction: column;
@@ -26,7 +36,7 @@
 }
 
 .message {
-  background-color: #116cf5;
+  background-color: var(--primary-color);
 
   display: flex;
   flex-direction: row;
@@ -66,8 +76,8 @@
 
 .new-message-input {
   min-height: 40px;
-  width: 400px;
-  border-radius: 5px 0px 0px 15px;
+  min-width: 400px;
+  border-radius: 0px 0px 0px 15px;
   border-style: none;
   padding: 5px;
 }
@@ -77,8 +87,30 @@
   height: 51px;
   border-radius: 0px 0px 16px 0px;
   border-style: none;
-  background-color: #116cf5;
+  background-color: var(--primary-color);
   color: white;
   font-size: 15px;
   cursor: pointer;
+}
+
+@media (max-width: 460px) {
+  .messages {
+    width: 400px;
+  }
+  .new-message-input {
+    min-height: 40px;
+    min-width: 400px;
+    border-radius: 0px 0px 15px 15px;
+    border-style: none;
+    padding: 5px;
+  }
+  .new-message-form {
+    flex-direction: column;
+    align-items: center;
+  }
+  .send-button {
+    width: 100px;
+    margin-top: 5px;
+    border-radius: 16px;
+  }
 }

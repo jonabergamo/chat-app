@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Auth } from "../../components/Auth/Auth";
 import Cookies from "universal-cookie";
 import { Chat } from "../../components/Chat/Chat";
@@ -6,12 +6,19 @@ import { signOut } from "firebase/auth";
 import { auth } from "../../services/firebaseConfig";
 import "./Home.css";
 const cookies = new Cookies();
+import { HexColorPicker } from "powerful-color-picker";
 
 export const Home = () => {
   const [isAuth, setIsAuth] = useState(cookies.get("auth-token"));
   const [room, setRoom] = useState(cookies.get("room-name"));
+  const [color, setColor] = useState(cookies.get("prefer-color") || "#116cf5");
 
   const roomInputRef = useRef(null);
+
+  useEffect(() => {
+    document.documentElement.style.setProperty("--primary-color", color);
+    cookies.set("prefer-color", color);
+  }, [color]);
 
   if (!isAuth) {
     return <Auth setIsAuth={setIsAuth} />;
@@ -30,22 +37,29 @@ export const Home = () => {
         <Chat room={room} />
       ) : (
         <div className="room">
-          <label htmlFor="">Enter Room Name</label>
+          <label htmlFor="">Entrar em uma sala</label>
           <div className="InputContainer">
-            <input ref={roomInputRef} className="room-input" />
+            <input
+              ref={roomInputRef}
+              className="room-input"
+              style={{ "text-transform": "uppercase" }}
+            />
           </div>
           <button
             className="button"
             onClick={() => {
-              setRoom(roomInputRef.current.value);
-              cookies.set("room-name", roomInputRef.current.value);
+              setRoom(roomInputRef.current.value.toUpperCase());
+              cookies.set(
+                "room-name",
+                roomInputRef.current.value.toUpperCase()
+              );
             }}
           >
-            <p className="text">Enter Chat</p>
+            <p className="text">Entrar no Chat</p>
           </button>
         </div>
       )}
-      <div className="sign-out">
+      <div className="menu">
         {room ? (
           <button
             onClick={() => {
@@ -57,8 +71,9 @@ export const Home = () => {
           </button>
         ) : null}
         <button onClick={signUserOut} className="sign-out-button button">
-          <p className="text">Sign Out</p>
+          <p className="text">Sair da Conta</p>
         </button>
+        <HexColorPicker color={color} onChange={setColor} />
       </div>
     </div>
   );

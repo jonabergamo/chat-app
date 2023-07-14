@@ -19,9 +19,11 @@
   -webkit-backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
-
-
-
+.menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .button {
   display: flex;
@@ -30,8 +32,8 @@
   width: 150px;
   padding: 0px 15px;
   gap: 15px;
-  background-color: #007acc;
-  outline: 3px #007acc solid;
+  background-color: var(--primary-color);
+  outline: 3px var(--primary-color) solid;
   outline-offset: -3px;
   border-radius: 5px;
   border: none;
@@ -52,13 +54,13 @@
 }
 
 .button:hover .text {
-  color: #007acc;
+  color: var(--primary-color);
 }
 
 .room-input {
   margin: 10px;
   border-radius: 10px;
-  outline: 2px solid #3da2f5;
+  outline: 2px solid var(--primary-color);
   border: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;

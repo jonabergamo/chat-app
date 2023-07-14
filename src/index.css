@@ -4,8 +4,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
   gap: 25px;
   font-family: "Roboto", sans-serif;
 }
@@ -13,4 +11,8 @@
 body {
   background-color: rgb(12, 12, 12);
   color: white;
+}
+
+:root {
+  --primary-color: #116cf5;
 }
