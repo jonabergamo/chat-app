@@ -105,7 +105,7 @@ export const Chat = (props) => {
           value={newMessage}
         />
         <button className="send-button" type="submit">
-          Send
+          Enviar
         </button>
       </form>
     </div>

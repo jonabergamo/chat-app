@@ -37,7 +37,7 @@ export const Home = () => {
         <Chat room={room} />
       ) : (
         <div className="room">
-          <label htmlFor="">Entrar em uma sala</label>
+          <label htmlFor="">Entrar em um chat</label>
           <div className="InputContainer">
             <input
               ref={roomInputRef}
@@ -67,7 +67,7 @@ export const Home = () => {
             }}
             className="button"
           >
-            <p className="text">Leave Room</p>
+            <p className="text">Sair do Chat</p>
           </button>
         ) : null}
         <button onClick={signUserOut} className="sign-out-button button">
